@@ -10,7 +10,7 @@
  */
 ?>
 
-        <article itemscope itemtype="http://schema.org/Article" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        <article itemscope itemtype="https://schema.org/Article" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
 		<div class="featured-post">
 			<?php _e( 'Featured post', 'twentytwelve' ); ?>
@@ -73,7 +73,7 @@ border: 2px solid black;
 
 <div style="font-size:smaller;margin-bottom:-20px;">Zuletzt geändert: <span class="updated"><?php the_modified_date(); ?></span> um <?php the_modified_time(); ?> Uhr.</div>
 
-				<div itemscope itemtype="http://data-vocabulary.org/Person" class="vcard"><div class="author-info">
+				<div itemscope itemtype="https://schema.org/Person" class="vcard"><div class="author-info">
 					<div class="author-avatar">
 						<!-- <?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'twentytwelve_author_bio_avatar_size', 68 ) ); ?> -->
 						<!-- <img alt='' src='http://1.gravatar.com/avatar/d0b58c714fafa21af3cd182992c399c3?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G' class='avatar avatar-68 photo' height='68' width='68' /> -->
