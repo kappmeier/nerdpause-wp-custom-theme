@@ -17,6 +17,9 @@ get_header(); ?>
 
                 <div class="social-block">
                     <ul>
+                        <li style="width:300px;height:20px;"><!-- Place this tag where you want the +1 button to render. -->
+                            <g:plusone size="medium" href="<?php the_permalink(); ?>" count="false"></g:plusone>
+                        </li>
                         <li style="width:40px;height:20px;"><!-- Facebook like. -->
                             <div class="fb-like" data-href="<?php the_permalink(); ?>" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-width="450" data-share="true" style="height:20px"></div>
                         </li>

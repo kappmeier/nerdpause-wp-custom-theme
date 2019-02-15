@@ -26,6 +26,7 @@
         </div><!-- #page -->
 
         <?php wp_footer(); ?>
-
+        <!-- Added scripts for social media. -->
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     </body>
 </html>
