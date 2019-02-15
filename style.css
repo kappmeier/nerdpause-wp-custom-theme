@@ -16,3 +16,22 @@
 .site-info span[role=separator]::before {
   content: '\2502';
 }
+
+/*
+ * Styles to have a block with social media plugins below posts.
+ */
+.social-block {
+  background-color: #EFEFEF;
+  padding: 10px;
+  margin-bottom: 12px;
+}
+
+.social-block ul li {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.site-content article {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
