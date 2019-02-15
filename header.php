@@ -32,6 +32,9 @@
 </head>
 
 <body <?php body_class(); ?>>
+    <!-- Custom added scripts and components for social media. -->
+    <div id="fb-root"></div>
+    <script async defer src="https://connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v3.2"></script>
     <div id="page" class="hfeed site">
         <header id="masthead" class="site-header" role="banner">
 
