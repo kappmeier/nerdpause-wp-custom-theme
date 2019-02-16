@@ -22,7 +22,8 @@
  */
 .social-block {
   background-color: #EFEFEF;
-  padding: 10px;
+  padding: 5px;
+  height: 31px;
   margin-bottom: 12px;
 }
 
@@ -34,4 +35,14 @@
 .site-content article {
   margin-bottom: 0px;
   padding-bottom: 0px;
+}
+
+.social-share-icon{
+    float: left;
+    display: block;
+    text-align: center;
+    margin: 0;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
 }
