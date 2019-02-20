@@ -29,13 +29,19 @@
         <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
     <![endif]-->
 
+    <?php
+    // TODO: multiple post pages, like category overview, or by date range
+    ?>
     <!-- Meta data for sharing and social meda -->
+    <?php if (have_posts()):the_post();endif;?>
+    <meta name="description" content="<?php if (is_single()): echo strip_tags(get_the_excerpt()); else: bloginfo('description'); endif; ?>"/>
+
     <!-- Facebook -->
     <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
     <?php if (is_single()) { /* A blog post or single page. */?>
         <meta property="og:url" content="<?php the_permalink(); ?>" />
         <meta property="og:title" content="<?php single_post_title(''); ?>" />
-        <meta property="og:description" content="<?php echo strip_tags(get_the_excerpt($post->ID)); ?>" />
+        <meta property="og:description" content="<?php echo strip_tags(get_the_excerpt()); ?>" />
         <meta property="og:type" content="article" />
     <?php } else { ?>
         <meta property="og:url" content="<?php global $wp; echo home_url($wp->request); ?>" />
@@ -44,6 +50,7 @@
         <meta property="og:type" content="website" />
     <?php } ?>
     <meta property="og:locale" content="de_DE" />
+
     <?php wp_head(); ?>
 </head>
 
