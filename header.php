@@ -16,7 +16,7 @@
 <html class="ie ie8" <?php language_attributes(); ?>>
 <![endif]-->
 <!--[if !(IE 7) & !(IE 8)]><!-->
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" prefix="og: http://ogp.me/ns#">
 <!--<![endif]-->
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
@@ -28,13 +28,26 @@
     <!--[if lt IE 9]>
         <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
     <![endif]-->
+
+    <!-- Meta data for sharing and social meda -->
+    <!-- Facebook -->
+    <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
+    <?php if (is_single()) { /* A blog post or single page. */?>
+        <meta property="og:url" content="<?php the_permalink(); ?>" />
+        <meta property="og:title" content="<?php single_post_title(''); ?>" />
+        <meta property="og:description" content="<?php echo strip_tags(get_the_excerpt($post->ID)); ?>" />
+        <meta property="og:type" content="article" />
+    <?php } else { ?>
+        <meta property="og:url" content="<?php global $wp; echo home_url($wp->request); ?>" />
+        <meta property="og:title" content="<?php wp_title( '|', true, 'right' ); ?>" />
+        <meta property="og:description" content="<?php bloginfo('description'); ?>" />
+        <meta property="og:type" content="website" />
+    <?php } ?>
+    <meta property="og:locale" content="de_DE" />
     <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-    <!-- Custom added scripts and components for social media. -->
-    <div id="fb-root"></div>
-    <script async defer src="https://connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v3.2"></script>
     <div id="page" class="hfeed site">
         <header id="masthead" class="site-header" role="banner">
 
