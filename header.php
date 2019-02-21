@@ -73,7 +73,15 @@
         },
         "Publisher": {
             "@type": "Organization",
-            "name": "Nerdpause"
+            "name": "Nerdpause",
+            "url": "https://nerdpause.de",
+            "logo": {
+                "@type": "ImageObject",
+                "name": "nerdpause-logo",
+                "width": "256",
+                "height": "256",
+                "url": "https://nerdpause.de/images/branding/logo/np-logo-1s-sq-256.png"
+            }
         },
         "url": "<?php the_permalink(); ?>",
         "datePublished":"<?php echo get_the_date(); ?>"
