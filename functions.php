@@ -5,4 +5,7 @@
     }
 
     add_action( 'wp_enqueue_scripts', 'nerdpause_theme_enqueue_styles' );
+
+    // Allow landing pages to have excerpts. Used to generate meta description.
+    add_post_type_support( 'page', 'excerpt' );
 ?>

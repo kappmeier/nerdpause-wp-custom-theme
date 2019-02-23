@@ -33,8 +33,8 @@
     // TODO: multiple post pages, like category overview, or by date range
     ?>
     <!-- Meta data for sharing and social meda -->
-    <?php if (have_posts()):the_post();endif;?>
-    <meta name="description" content="<?php if (is_single()): echo strip_tags(get_the_excerpt()); else: bloginfo('description'); endif; ?>"/>
+    <?php if (!is_page() && have_posts()):the_post();endif;?>
+    <meta name="description" content="<?php if (is_page() || is_single()): echo strip_tags(get_the_excerpt()); else: bloginfo('description'); endif; ?>"/>
 
     <!-- Facebook -->
     <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
@@ -46,7 +46,7 @@
     <?php } else { ?>
         <meta property="og:url" content="<?php global $wp; echo home_url($wp->request); ?>" />
         <meta property="og:title" content="<?php wp_title( '|', true, 'right' ); ?>" />
-        <meta property="og:description" content="<?php bloginfo('description'); ?>" />
+        <meta property="og:description" content="<?php if (is_page() && has_excerpt()): echo strip_tags(get_the_excerpt()); else: bloginfo('description'); endif; ?>" />
         <meta property="og:type" content="website" />
     <?php } ?>
     <meta property="og:locale" content="de_DE" />
