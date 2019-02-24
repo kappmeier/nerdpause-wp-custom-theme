@@ -46,3 +46,39 @@
     height: 32px;
     line-height: 32px;
 }
+
+div.site-header {
+    height: 120px;
+    padding: 0;
+    float:left;
+}
+
+div.logo-column {
+    width:120px;
+    padding-right:40px;
+}
+
+.header-logo {
+    width: 120px;
+    height: 120px;
+    margin-top:0px;
+    box-shadow: none;
+}
+
+div.name-column {
+    float: left;
+}
+
+div.action-column {
+    float:right;
+    width:200px;
+    position:relative;
+}
+
+.site-title {
+    margin-top:24px;
+}
+
+.site-description {
+    margin-top:-8px;
+}

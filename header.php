@@ -33,8 +33,8 @@
     // TODO: multiple post pages, like category overview, or by date range
     ?>
     <!-- Meta data for sharing and social meda -->
-    <?php if (have_posts()):the_post();endif;?>
-    <meta name="description" content="<?php if (is_single()): echo strip_tags(get_the_excerpt()); else: bloginfo('description'); endif; ?>"/>
+    <?php if (!is_page() && have_posts()):the_post();endif;?>
+    <meta name="description" content="<?php if (is_page() || is_single()): echo strip_tags(get_the_excerpt()); else: bloginfo('description'); endif; ?>"/>
 
     <!-- Facebook -->
     <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
@@ -46,7 +46,7 @@
     <?php } else { ?>
         <meta property="og:url" content="<?php global $wp; echo home_url($wp->request); ?>" />
         <meta property="og:title" content="<?php wp_title( '|', true, 'right' ); ?>" />
-        <meta property="og:description" content="<?php bloginfo('description'); ?>" />
+        <meta property="og:description" content="<?php if (is_page() && has_excerpt()): echo strip_tags(get_the_excerpt()); else: bloginfo('description'); endif; ?>" />
         <meta property="og:type" content="website" />
     <?php } ?>
     <meta property="og:locale" content="de_DE" />
@@ -95,8 +95,14 @@
     <div id="page" class="hfeed site">
         <header id="masthead" class="site-header" role="banner">
 
-            <!-- The left part of the header, containing blog title and subtitle. -->
-            <div style="float:left;width:60%;">
+            <!-- The left part of the header, containing the logo. -->
+            <div class="site-header logo-column">
+                <!-- Square logo in left corner. -->
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="images/branding/logo/np-logo-1ct-sq-512.png" class="header-logo" alt="Nerdpause small logo."/></a>
+            </div>
+
+            <!-- The center part of the header, containing blog title and subtitle. -->
+            <div class="site-header name-column">
                 <hgroup>
                     <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
                     <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
@@ -104,7 +110,7 @@
             </div>
 
             <!-- The right part of the header, containing an android. -->
-            <div style="float:right;width:39%;height:120px;position:relative;">
+            <div class="site-header action-column">
                 <div class="droid">
                     <div class="head">
                         <div class="eye"></div>
