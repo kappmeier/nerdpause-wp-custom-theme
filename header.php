@@ -98,7 +98,7 @@
             <!-- The left part of the header, containing the logo. -->
             <div class="site-header logo-column">
                 <!-- Square logo in left corner. -->
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="images/branding/logo/np-logo-1ct-sq-512.png" class="header-logo" alt="Nerdpause small logo."/></a>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="https://nerdpause.de/images/branding/logo/np-logo-1ct-sq-512.png" class="header-logo" alt="Nerdpause small logo."/></a>
             </div>
 
             <!-- The center part of the header, containing blog title and subtitle. -->
