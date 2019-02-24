@@ -95,8 +95,14 @@
     <div id="page" class="hfeed site">
         <header id="masthead" class="site-header" role="banner">
 
-            <!-- The left part of the header, containing blog title and subtitle. -->
-            <div style="float:left;width:60%;">
+            <!-- The left part of the header, containing the logo. -->
+            <div class="site-header logo-column">
+                <!-- Square logo in left corner. -->
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="images/branding/logo/np-logo-1ct-sq-512.png" class="header-logo" alt="Nerdpause small logo."/></a>
+            </div>
+
+            <!-- The center part of the header, containing blog title and subtitle. -->
+            <div class="site-header name-column">
                 <hgroup>
                     <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
                     <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
@@ -104,7 +110,7 @@
             </div>
 
             <!-- The right part of the header, containing an android. -->
-            <div style="float:right;width:39%;height:120px;position:relative;">
+            <div class="site-header action-column">
                 <div class="droid">
                     <div class="head">
                         <div class="eye"></div>
