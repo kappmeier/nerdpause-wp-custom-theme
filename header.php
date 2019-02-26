@@ -87,8 +87,12 @@
         "datePublished":"<?php echo get_the_date(); ?>"
     }
 </script>
+
 <?php } ?>
-    <?php wp_head(); ?>
+<?php
+    wp_head();
+    while ( have_posts() ) : the_post(); endwhile;
+?>
 </head>
 
 <body <?php body_class(); ?>>

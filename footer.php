@@ -20,7 +20,7 @@
                             the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span>' );
                         }
                     ?>
-                    <a href="impressum" class="imprint">Impressum</a>
+                    <a href="impressum" class="imprint" rel=“nofollow“>Impressum</a>
                 </div><!-- .site-info -->
             </footer><!-- #colophon -->
         </div><!-- #page -->
