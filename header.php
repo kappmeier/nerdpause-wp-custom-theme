@@ -62,31 +62,6 @@
     }
     </script>
     <?php if (is_single()) { ?>
-<script type="application/ld+json">
-    {
-        "@context": "http://schema.org/",
-        "headline": "<?php single_post_title(''); ?>",
-        "@type":"Article",
-        "author": {
-            "@type": "Person",
-            "name": "Jan-Philipp Kappmeier"
-        },
-        "Publisher": {
-            "@type": "Organization",
-            "name": "Nerdpause",
-            "url": "https://nerdpause.de",
-            "logo": {
-                "@type": "ImageObject",
-                "name": "nerdpause-logo",
-                "width": "256",
-                "height": "256",
-                "url": "https://nerdpause.de/images/branding/logo/np-logo-1s-sq-256.png"
-            }
-        },
-        "url": "<?php the_permalink(); ?>",
-        "datePublished":"<?php echo get_the_date(); ?>"
-    }
-</script>
 
 <?php } ?>
 <?php
