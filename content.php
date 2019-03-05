@@ -89,9 +89,9 @@
             </div>
             <!-- author information -->
             <div class="vcard">
-                <div itemscope itemtype="http://data-vocabulary.org/Person" class="author-info">
+                <div itemscope itemtype="https://schema.org/Person" class="author-info">
                     <div class="author-avatar">
-                            <span style="display:none"><a href="https://de.gravatar.com/userimage/46451036/3a56a25056722bf770bb8f4d44c3c7c8.jpg?size=68" itemprop="photo"></a></span>
+                            <span style="display:none"><a href="https://de.gravatar.com/userimage/46451036/3a56a25056722bf770bb8f4d44c3c7c8.jpg?size=68" itemprop="image"></a></span>
                     </div><!-- .author-avatar -->
                     <div class="author-description">
                         <h2>Geschrieben von <span itemprop="name" class="fn"><a itemprop="url" href="https://plus.google.com/+JanPhilippKappmeier?rel=author" target="_blank">Jan-Philipp Kappmeier</a></span>.</h2>
