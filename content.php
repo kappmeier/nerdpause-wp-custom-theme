@@ -90,11 +90,10 @@
             <!-- author information -->
             <div class="vcard">
                 <div itemscope itemtype="http://data-vocabulary.org/Person" class="author-info">
-                    <div class="author-avatar" style="float:left;">
+                    <div class="author-avatar">
                             <span style="display:none"><a href="https://de.gravatar.com/userimage/46451036/3a56a25056722bf770bb8f4d44c3c7c8.jpg?size=68" itemprop="photo"></a></span>
                     </div><!-- .author-avatar -->
                     <div class="author-description">
-
                         <h2>Geschrieben von <span itemprop="name" class="fn"><a itemprop="url" href="https://plus.google.com/+JanPhilippKappmeier?rel=author" target="_blank">Jan-Philipp Kappmeier</a></span>.</h2>
                         <span style="display:none;"> a.k.a. <a itemprop="url" href="https://plus.google.com/+JanPhilippKappmeier?rel=author" target="_blank"><span itemprop="alternateName" class="nickname">Kap</span></a></span>
                             <p>
@@ -102,7 +101,6 @@
                                 An der  <span itemprop="worksFor" itemscope id="tuberlin" itemtype="https://schema.org/Organization" class="org">TU Berlin</span>
                                 forsche ich nun als <span itemprop="jobTitle">wissenschaftlicher Mitarbeiter</span> in der kombinatorischen Optimierung an Graphalgorithmen; nebenbei bringe ich Anfängern Programmieren bei. Ich blogge hier über alles was mich interessiert, vor allem Nerdiges und Reisen.
                             </p>
-                        </div><!-- .author-link    -->
                     </div><!-- .author-description -->
                 </div><!-- .author-info -->
             </div>
