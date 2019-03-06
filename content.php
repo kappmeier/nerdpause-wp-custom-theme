@@ -10,12 +10,12 @@
  */
 ?>
 
-        <article itemscope itemtype="https://schema.org/Article" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        <article <?php post_class(); ?>>
         <script type="application/ld+json">
 {
     "@context": "http://schema.org/",
     "headline": "<?php the_title(); ?>",
-    "@type":"Article",
+    "@type":"BlogPosting",
     "author": {
         "@type": "Person",
         "name": "Jan-Philipp Kappmeier"
@@ -33,9 +33,12 @@
         }
     },
     "url": "<?php the_permalink(); ?>",
-    "datePublished":"<?php echo get_the_date(); ?>"
+    "datePublished":"<?php echo get_the_date("c"); ?>",
+    "image":"https://nerdpause.de/images/branding/logo/np-logo-1s-sq-256.png",
+    "mainEntityOfPage":"<?php the_permalink(); ?>",
+    "dateModified":"<?php the_modified_date("c"); ?>"
 }
-        </script>        
+        </script>         <!-- 2015-02-05T09:20:00+08:00 -->
         <?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
         <div class="featured-post">
             <?php _e( 'Featured post', 'twentytwelve' ); ?>
@@ -48,9 +51,9 @@
             endif;
             ?>
             <?php if ( is_single() ) : ?>
-            <h1 itemprop="headline" class="entry-title"><?php the_title(); ?></h1>
+            <h1 class="entry-title"><?php the_title(); ?></h1>
             <?php else : ?>
-            <h1 itemprop="headline" class="entry-title">
+            <h1 class="entry-title">
                 <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
             </h1>
             <?php endif; // is_single() ?>
