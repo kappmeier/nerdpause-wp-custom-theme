@@ -52,10 +52,41 @@
     <meta property="og:locale" content="de_DE" />
 
     <!-- JSON-LD -->
+    <?php if (is_single()) { /* A blog post or single page. */?>
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebPage",
+        "name": "<?php single_post_title(''); ?>",
+        "description": "<?php if (is_page() && has_excerpt()): echo strip_tags(get_the_excerpt()); else: bloginfo('description'); endif; ?>",
+        "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US"
+    }
+    </script>
+    <?php } else { ?>
+    <?php } ?>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://nerdpause.de",
+        "name": "Nerdpause",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://nerdpause.de/?s={query}",
+            "query-input": {
+                "@type": "PropertyValueSpecification",
+                "valueRequired": "http://schema.org/True",
+                "valueName": "query"
+          }
+        }
+    }
+    </script>
     <script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "Person",
+        "@id": "https://nerdpause.de/#kap",
         "name": "Jan-Philipp Kappmeier",
         "email": "jp.kappmeier@gmail.com",
         "sameAs": ["https://twitter.com/kappmeierz","https://www.linkedin.com/in/kappmeier"]
