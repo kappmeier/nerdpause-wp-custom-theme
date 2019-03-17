@@ -52,6 +52,7 @@
     <meta property="og:locale" content="de_DE" />
 
     <!-- JSON-LD -->
+    <!-- The actual web page. -->
     <?php if (is_single()) { /* A blog post or single page. */?>
     <script type="application/ld+json">
     {
@@ -64,11 +65,12 @@
     </script>
     <?php } else { ?>
     <?php } ?>
-    
+    <!-- The general web site -->
     <script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "WebSite",
+        "@id": "https://nerdpause.de/#site",
         "url": "https://nerdpause.de",
         "name": "Nerdpause",
         "potentialAction": {
@@ -82,14 +84,22 @@
         }
     }
     </script>
+    
+    <!-- The author/owner -->
     <script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "Person",
-        "@id": "https://nerdpause.de/#kap",
+        "@id": "https://nerdpause.de/author/kap/#i",
         "name": "Jan-Philipp Kappmeier",
         "email": "jp.kappmeier@gmail.com",
-        "sameAs": ["https://twitter.com/kappmeierz","https://www.linkedin.com/in/kappmeier"]
+        "url": "https://nerdpause.de/author/kap/",
+        "mainEntityOfPage": "https://nerdpause.de/author/kap/",
+        "sameAs": [
+            "https://twitter.com/kappmeierz",
+            "https://www.linkedin.com/in/kappmeier",
+            "https://kappmeier.de/about"
+        ]
     }
     </script>
     <?php if (is_single()) { ?>

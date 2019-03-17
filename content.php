@@ -11,15 +11,12 @@
 ?>
 
         <article <?php post_class(); ?>>
-        <script type="application/ld+json">
-{
+    <script type="application/ld+json">
+    {
     "@context": "http://schema.org/",
     "headline": "<?php the_title(); ?>",
     "@type":"BlogPosting",
-    "author": {
-        "@type": "Person",
-        "name": "Jan-Philipp Kappmeier"
-    },
+    "author": { "@id": "https://nerdpause.de/author/kap/#i" },
     "Publisher": {
         "@type": "Organization",
         "name": "Nerdpause",
@@ -37,8 +34,8 @@
     "image":"https://nerdpause.de/images/branding/logo/np-logo-1s-sq-256.png",
     "mainEntityOfPage":"<?php the_permalink(); ?>",
     "dateModified":"<?php the_modified_date("c"); ?>"
-}
-        </script>         <!-- 2015-02-05T09:20:00+08:00 -->
+    }
+    </script>
         <?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
         <div class="featured-post">
             <?php _e( 'Featured post', 'twentytwelve' ); ?>
