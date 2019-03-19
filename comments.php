@@ -46,7 +46,7 @@ if ( post_password_required() ) {
             <?php
             wp_list_comments(
                 array(
-                    'callback' => 'twentytwelve_comment',
+                    'callback' => 'nerdpause_comment',
                     'style'    => 'ol',
                 )
             );

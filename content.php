@@ -16,7 +16,7 @@
     "@context": "http://schema.org/",
     "headline": "<?php the_title(); ?>",
     "@type":"BlogPosting",
-    "author": { "@id": "https://nerdpause.de/author/kap/#i" },
+    "author": { "@id": "https://kappmeier.de/about#kap" },
     "Publisher": {
         "@type": "Organization",
         "name": "Nerdpause",

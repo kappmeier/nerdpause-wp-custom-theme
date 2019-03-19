@@ -90,7 +90,7 @@
     {
         "@context": "http://schema.org",
         "@type": "Person",
-        "@id": "https://nerdpause.de/author/kap/#i",
+        "@id": "https://kappmeier.de/about#kap",
         "name": "Jan-Philipp Kappmeier",
         "email": "jp.kappmeier@gmail.com",
         "url": "https://nerdpause.de/author/kap/",
