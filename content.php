@@ -32,6 +32,18 @@
     "url": "<?php the_permalink(); ?>",
     "datePublished":"<?php echo get_the_date("c"); ?>",
     "image":"https://nerdpause.de/images/branding/logo/np-logo-1s-sq-256.png",
+    <?php
+                $comments = get_comments(array('post_id' => $post->ID));
+                if (sizeof($comments) > 0) {
+                    echo '"comment": [' . "\n";
+                    for($i = 0; $i < sizeof($comments) - 1; $i++) {
+                        echo '        { "@id": "' . get_the_permalink() . '#comment-' . $comments[$i]->comment_ID . '"},' . "\n";
+                    }
+                    echo '        { "@id": "' . get_the_permalink() . '#comment-' . $comments[sizeof($comments) - 1]->comment_ID . '"}' . "\n";
+                    echo '    ],' . "\n";
+                }
+                echo '    "commentCount": "' . sizeof($comments) . '",' . "\n";
+            ?>
     "mainEntityOfPage":"<?php the_permalink(); ?>",
     "dateModified":"<?php the_modified_date("c"); ?>"
     }
