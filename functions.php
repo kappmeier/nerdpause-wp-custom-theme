@@ -9,12 +9,10 @@
     // Allow landing pages to have excerpts. Used to generate meta description.
     add_post_type_support( 'page', 'excerpt' );
 
-    add_filter( 'the_privacy_policy_link', 'test_function');
-
     /*
      * Add set the rel attribute of the privacy policy link to 'nofollow'.
      */
-    function test_function($link) {
+    function nerdpause_privacy_policy($link) {
         // Read the link as document in utf-8 encoding
         $doc = new DOMDocument;
         @$doc->loadHTML('<meta http-equiv="content-type" content="text/html; charset=utf-8">' . $link);
@@ -25,6 +23,7 @@
 
         return $doc->saveHTML($link);
     }
+    add_filter( 'the_privacy_policy_link', 'nerdpause_privacy_policy');
 
     /**
      * Customized comment callback function printing comments and adds json-ld tags.
