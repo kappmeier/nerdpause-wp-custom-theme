@@ -24,36 +24,37 @@
     <title><?php wp_title( '|', true, 'right' ); ?></title>
     <link rel="profile" href="https://gmpg.org/xfn/11" />
     <link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>">
-    <?php // Loads HTML5 JavaScript file to add support for HTML5 elements in older IE versions. ?>
+<?php // Loads HTML5 JavaScript file to add support for HTML5 elements in older IE versions. ?>
     <!--[if lt IE 9]>
         <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
     <![endif]-->
 
-    <?php
+<?php
     // TODO: multiple post pages, like category overview, or by date range
     ?>
     <!-- Meta data for sharing and social meda -->
-    <?php if (!is_page() && have_posts()):the_post();endif;?>
+<?php if (!is_page() && have_posts()):the_post();endif;?>
     <meta name="description" content="<?php if (is_page() || is_single()): echo strip_tags(get_the_excerpt()); else: bloginfo('description'); endif; ?>"/>
 
     <!-- Facebook -->
     <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
-    <?php if (is_single()) { /* A blog post or single page. */?>
-        <meta property="og:url" content="<?php the_permalink(); ?>" />
-        <meta property="og:title" content="<?php single_post_title(''); ?>" />
-        <meta property="og:description" content="<?php echo strip_tags(get_the_excerpt()); ?>" />
-        <meta property="og:type" content="article" />
-    <?php } else { ?>
-        <meta property="og:url" content="<?php global $wp; echo home_url($wp->request); ?>" />
-        <meta property="og:title" content="<?php wp_title( '|', true, 'right' ); ?>" />
-        <meta property="og:description" content="<?php if (is_page() && has_excerpt()): echo strip_tags(get_the_excerpt()); else: bloginfo('description'); endif; ?>" />
-        <meta property="og:type" content="website" />
-    <?php } ?>
+<?php if (is_single()) { /* A blog post or single page. */?>
+    <meta property="og:url" content="<?php the_permalink(); ?>" />
+    <meta property="og:title" content="<?php single_post_title(''); ?>" />
+    <meta property="og:description" content="<?php echo strip_tags(get_the_excerpt()); ?>" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="<?php echo facebook_post_image(); ?>" />
+<?php } else { ?>
+    <meta property="og:url" content="<?php global $wp; echo home_url($wp->request); ?>" />
+    <meta property="og:title" content="<?php wp_title( '|', true, 'right' ); ?>" />
+    <meta property="og:description" content="<?php if (is_page() && has_excerpt()): echo strip_tags(get_the_excerpt()); else: bloginfo('description'); endif; ?>" />
+    <meta property="og:type" content="website" />
+<?php } ?>
     <meta property="og:locale" content="de_DE" />
 
     <!-- JSON-LD -->
     <!-- The actual web page. -->
-    <?php if (is_single()) { /* A blog post or single page. */?>
+<?php if (is_single()) { /* A blog post or single page. */?>
     <script type="application/ld+json">
     {
         "@context": "http://schema.org",
@@ -64,7 +65,7 @@
     }
     </script>
     <?php } else { ?>
-    <?php } ?>
+<?php } ?>
     <!-- The general web site -->
     <script type="application/ld+json">
     {
