@@ -43,6 +43,13 @@
     <meta property="og:title" content="<?php single_post_title(''); ?>" />
     <meta property="og:description" content="<?php echo strip_tags(get_the_excerpt()); ?>" />
     <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="<?php echo get_the_date("c"); ?>" />
+    <meta property="article:modified_time" content="<?php the_modified_date("c"); ?>" />
+    <meta property="article:author" content="https://www.facebook.com/janphilipp.kappmeier/" />
+<?php
+    //<meta property="article:section" content="" /> - string - A high-level section name. E.g. Technology
+?>
+    <meta property="article:tag" content="<?php get_the_tags(); ?>" />
     <meta property="og:image" content="<?php echo facebook_post_image(); ?>" />
 <?php } else { ?>
     <meta property="og:url" content="<?php global $wp; echo home_url($wp->request); ?>" />
