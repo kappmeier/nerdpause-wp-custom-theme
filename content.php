@@ -17,6 +17,11 @@
     "headline": "<?php the_title(); ?>",
     "@type":"BlogPosting",
     "author": { "@id": "https://kappmeier.de/about#kap" },
+<?php if (has_post_thumbnail() ) { /** We have an image defined. */?>
+    "image": "<?php echo get_the_post_thumbnail_url(); ?>",
+<? } else { ?>
+    "image":"https://nerdpause.de/images/branding/logo/np-logo-1s-sq-256.png",
+<?php } ?>
     "Publisher": {
         "@type": "Organization",
         "name": "Nerdpause",
@@ -31,7 +36,6 @@
     },
     "url": "<?php the_permalink(); ?>",
     "datePublished":"<?php echo get_the_date("c"); ?>",
-    "image":"https://nerdpause.de/images/branding/logo/np-logo-1s-sq-256.png",
     <?php
                 $comments = get_comments(array('post_id' => $post->ID));
                 if (sizeof($comments) > 0) {
@@ -54,11 +58,6 @@
         </div>
         <?php endif; ?>
         <header class="entry-header">
-            <?php
-            if ( ! post_password_required() && ! is_attachment() ) :
-                the_post_thumbnail();
-            endif;
-            ?>
             <?php if ( is_single() ) : ?>
             <h1 class="entry-title"><?php the_title(); ?></h1>
             <?php else : ?>
@@ -66,6 +65,11 @@
                 <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
             </h1>
             <?php endif; // is_single() ?>
+            <?php
+            if ( ! post_password_required() && ! is_attachment() ) :
+                the_post_thumbnail();
+            endif;
+            ?>
             <?php if ( comments_open() ) : ?>
                 <div class="comments-link">
                     <?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a reply', 'twentytwelve' ) . '</span>', __( '1 Reply', 'twentytwelve' ), __( '% Replies', 'twentytwelve' ) ); ?>
