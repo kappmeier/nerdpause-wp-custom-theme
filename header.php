@@ -46,10 +46,24 @@
     <meta property="article:published_time" content="<?php echo get_the_date('c'); ?>" />
     <meta property="article:modified_time" content="<?php the_modified_date('c'); ?>" />
     <meta property="article:author" content="https://www.facebook.com/janphilipp.kappmeier/" />
-<?php
-    //<meta property="article:section" content="" /> - string - A high-level section name. E.g. Technology
+    <meta property="article:section" content="<?php
+    $categories = get_the_category();
+    if (empty($categories)) {
+        echo "Allgemein";
+    } else {
+        echo $categories[0]->name;
+    }
 ?>
-    <meta property="article:tag" content="<?php get_the_tags(); ?>" />
+" />
+<?php
+    $tags = get_the_tags();
+    if (!empty( $tags)) {
+        foreach ($tags as $tag) {
+            #$cat_names[] = sanitize_term_field( 'name', $tag->name, $tag->term_id, 'post_tag', $filter );
+            echo '    <meta property="article:tag" content="' . $tag->name . '" />' . "\n";
+        }
+    }
+?>
     <meta property="og:image" content="<?php echo facebook_post_image(); ?>" />
 <?php
     } else {
