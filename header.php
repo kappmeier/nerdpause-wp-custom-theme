@@ -19,12 +19,12 @@
 <html <?php language_attributes(); ?> xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" prefix="og: http://ogp.me/ns#">
 <!--<![endif]-->
 <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>" />
+    <meta charset="<?php bloginfo('charset'); ?>" />
     <meta name="viewport" content="width=device-width" />
-    <title><?php wp_title( '|', true, 'right' ); ?></title>
+    <title><?php wp_title('|', true, 'right'); ?></title>
     <link rel="profile" href="https://gmpg.org/xfn/11" />
-    <link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>">
-<?php // Loads HTML5 JavaScript file to add support for HTML5 elements in older IE versions. ?>
+    <link rel="pingback" href="<?php echo esc_url(get_bloginfo('pingback_url')); ?>">
+<?php // Loads HTML5 JavaScript file to add support for HTML5 elements in older IE versions.?>
     <!--[if lt IE 9]>
         <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
     <![endif]-->
@@ -33,7 +33,7 @@
     // TODO: multiple post pages, like category overview, or by date range
     ?>
     <!-- Meta data for sharing and social meda -->
-<?php if (!is_page() && have_posts()):the_post();endif;?>
+<?php if (!is_page() && have_posts()):the_post(); endif; ?>
     <meta name="description" content="<?php if (is_page() || is_single()): echo strip_tags(get_the_excerpt()); else: bloginfo('description'); endif; ?>"/>
 
     <!-- Facebook -->
@@ -43,20 +43,25 @@
     <meta property="og:title" content="<?php single_post_title(''); ?>" />
     <meta property="og:description" content="<?php echo strip_tags(get_the_excerpt()); ?>" />
     <meta property="og:type" content="article" />
-    <meta property="article:published_time" content="<?php echo get_the_date("c"); ?>" />
-    <meta property="article:modified_time" content="<?php the_modified_date("c"); ?>" />
+    <meta property="article:published_time" content="<?php echo get_the_date('c'); ?>" />
+    <meta property="article:modified_time" content="<?php the_modified_date('c'); ?>" />
     <meta property="article:author" content="https://www.facebook.com/janphilipp.kappmeier/" />
 <?php
     //<meta property="article:section" content="" /> - string - A high-level section name. E.g. Technology
 ?>
     <meta property="article:tag" content="<?php get_the_tags(); ?>" />
     <meta property="og:image" content="<?php echo facebook_post_image(); ?>" />
-<?php } else { ?>
-    <meta property="og:url" content="<?php global $wp; echo home_url($wp->request); ?>" />
-    <meta property="og:title" content="<?php wp_title( '|', true, 'right' ); ?>" />
-    <meta property="og:description" content="<?php if (is_page() && has_excerpt()): echo strip_tags(get_the_excerpt()); else: bloginfo('description'); endif; ?>" />
+<?php
+    } else {
+        ?>
+    <meta property="og:url" content="<?php global $wp;
+        echo home_url($wp->request); ?>" />
+    <meta property="og:title" content="<?php wp_title('|', true, 'right'); ?>" />
+    <meta property="og:description" content="<?php if (is_page() && has_excerpt()): echo strip_tags(get_the_excerpt()); else: bloginfo('description');
+        endif; ?>" />
     <meta property="og:type" content="website" />
-<?php } ?>
+<?php
+    } ?>
     <meta property="og:locale" content="de_DE" />
 
     <!-- JSON-LD -->
@@ -67,12 +72,16 @@
         "@context": "http://schema.org",
         "@type": "WebPage",
         "name": "<?php single_post_title(''); ?>",
-        "description": "<?php if (is_page() && has_excerpt()): echo strip_tags(get_the_excerpt()); else: bloginfo('description'); endif; ?>",
+        "description": "<?php if (is_page() && has_excerpt()): echo strip_tags(get_the_excerpt()); else: bloginfo('description');
+        endif; ?>",
         "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US"
     }
     </script>
-    <?php } else { ?>
-<?php } ?>
+    <?php
+    } else {
+        ?>
+<?php
+    } ?>
     <!-- The general web site -->
     <script type="application/ld+json">
     {
@@ -110,12 +119,14 @@
         ]
     }
     </script>
-    <?php if (is_single()) { ?>
+    <?php if (is_single()) {
+        ?>
 
-<?php } ?>
+<?php
+    } ?>
 <?php
     wp_head();
-    while ( have_posts() ) : the_post(); endwhile;
+    while (have_posts()) : the_post(); endwhile;
 ?>
 </head>
 
@@ -126,14 +137,14 @@
             <!-- The left part of the header, containing the logo. -->
             <div class="site-header logo-column">
                 <!-- Square logo in left corner. -->
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="https://nerdpause.de/images/branding/logo/np-logo-1ct-sq-512.png" class="header-logo" alt="Nerdpause small logo."/></a>
+                <a href="<?php echo esc_url(home_url('/')); ?>"><img src="https://nerdpause.de/images/branding/logo/np-logo-1ct-sq-512.png" class="header-logo" alt="Nerdpause small logo."/></a>
             </div>
 
             <!-- The center part of the header, containing blog title and subtitle. -->
             <div class="site-header name-column">
                 <hgroup>
-                    <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-                    <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+                    <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
+                    <h2 class="site-description"><?php bloginfo('description'); ?></h2>
                 </hgroup>
             </div>
 
@@ -154,8 +165,8 @@
                 </div>
             </div>
 
-        <?php if ( get_header_image() ) : ?>
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php header_image(); ?>" class="header-image" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" /></a>
+        <?php if (get_header_image()) : ?>
+        <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php header_image(); ?>" class="header-image" width="<?php echo esc_attr(get_custom_header()->width); ?>" height="<?php echo esc_attr(get_custom_header()->height); ?>" alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" /></a>
         <?php endif; ?>
     </header><!-- #masthead -->
 

@@ -2,18 +2,17 @@
 /**
  * The Template for displaying all single posts, taken from Twenty Twelve package.
  */
-
 get_header(); ?>
 
     <div id="primary" class="site-content">
         <div id="content" role="main">
 
             <?php
-            while ( have_posts() ) :
+            while (have_posts()) :
                 the_post();
                 ?>
 
-            <?php get_template_part( 'content', get_post_format() ); ?>
+            <?php get_template_part('content', get_post_format()); ?>
 
                 <div class="social-block">
                     <!-- SVG icons for sharing from ShareCounts WP Plugin. -->
@@ -22,7 +21,7 @@ get_header(); ?>
                     </div>
 
                     <div class="social-share-icon">
-                        <a href="https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fnerdpause.de&amp;source=tweetbutton&amp;text=<?php htmlspecialchars(rawurlencode(the_title())) ?>&amp;url=<?php the_permalink() ?>&amp;<? /* via=nerdpause */ ?>" rel="nofollow noopener noreferrer" target="_blank" title="Share on Twitter" data-text="<?php htmlspecialchars(rawurlencode(the_title())) ?>" data-url="<?php the_permalink() ?>" <?php /* data-via="nerdpause" */ ?> data-related="nerdpause">
+                        <a href="https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fnerdpause.de&amp;source=tweetbutton&amp;text=<?php htmlspecialchars(rawurlencode(the_title())) ?>&amp;url=<?php the_permalink() ?>&amp;<?php /* via=nerdpause */ ?>" rel="nofollow noopener noreferrer" target="_blank" title="Share on Twitter" data-text="<?php htmlspecialchars(rawurlencode(the_title())) ?>" data-url="<?php the_permalink() ?>" <?php /* data-via="nerdpause" */ ?> data-related="nerdpause">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="29.71875" height="32" viewBox="0 0 951 1024" style="fill: #999999; width: 16px; height: 16px;"><path d="M925.714 233.143q-38.286 56-92.571 95.429 0.571 8 0.571 24 0 74.286-21.714 148.286t-66 142-105.429 120.286-147.429 83.429-184.571 31.143q-154.857 0-283.429-82.857 20 2.286 44.571 2.286 128.571 0 229.143-78.857-60-1.143-107.429-36.857t-65.143-91.143q18.857 2.857 34.857 2.857 24.571 0 48.571-6.286-64-13.143-106-63.714t-42-117.429v-2.286q38.857 21.714 83.429 23.429-37.714-25.143-60-65.714t-22.286-88q0-50.286 25.143-93.143 69.143 85.143 168.286 136.286t212.286 56.857q-4.571-21.714-4.571-42.286 0-76.571 54-130.571t130.571-54q80 0 134.857 58.286 62.286-12 117.143-44.571-21.143 65.714-81.143 101.714 53.143-5.714 106.286-28.571z"></path></svg>
                         </a>
                     </div>
@@ -57,14 +56,14 @@ get_header(); ?>
                 </div>
 
                 <nav class="nav-single">
-                    <h3 class="assistive-text"><?php _e( 'Post navigation', 'twentytwelve' ); ?></h3>
-                    <span class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'twentytwelve' ) . '</span> %title' ); ?></span>
-                    <span class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'twentytwelve' ) . '</span>' ); ?></span>
+                    <h3 class="assistive-text"><?php _e('Post navigation', 'twentytwelve'); ?></h3>
+                    <span class="nav-previous"><?php previous_post_link('%link', '<span class="meta-nav">'._x('&larr;', 'Previous post link', 'twentytwelve').'</span> %title'); ?></span>
+                    <span class="nav-next"><?php next_post_link('%link', '%title <span class="meta-nav">'._x('&rarr;', 'Next post link', 'twentytwelve').'</span>'); ?></span>
                 </nav><!-- .nav-single -->
 
-                <?php comments_template( '', true ); ?>
+                <?php comments_template('', true); ?>
 
-            <?php endwhile; // end of the loop. ?>
+            <?php endwhile; // end of the loop.?>
 
         </div><!-- #content -->
     </div><!-- #primary -->

@@ -1,11 +1,9 @@
 <?php
 /**
- * The default template for displaying content
+ * The default template for displaying content.
  *
  * Used for both single and index/archive/search.
  *
- * @package WordPress
- * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
 ?>
@@ -17,11 +15,14 @@
     "headline": "<?php the_title(); ?>",
     "@type":"BlogPosting",
     "author": { "@id": "https://kappmeier.de/about#kap" },
-<?php if (has_post_thumbnail() ) { /** We have an image defined. */?>
+<?php if (has_post_thumbnail()) { /* We have an image defined. */?>
     "image": "<?php echo get_the_post_thumbnail_url(); ?>",
-<? } else { ?>
+<?php
+} else {
+    ?>
     "image":"https://nerdpause.de/images/branding/logo/np-logo-1s-sq-256.png",
-<?php } ?>
+<?php
+} ?>
     "Publisher": {
         "@type": "Organization",
         "name": "Nerdpause",
@@ -35,61 +36,61 @@
         }
     },
     "url": "<?php the_permalink(); ?>",
-    "datePublished":"<?php echo get_the_date("c"); ?>",
+    "datePublished":"<?php echo get_the_date('c'); ?>",
     <?php
-                $comments = get_comments(array('post_id' => $post->ID));
-                if (sizeof($comments) > 0) {
-                    echo '"comment": [' . "\n";
-                    for($i = 0; $i < sizeof($comments) - 1; $i++) {
-                        echo '        { "@id": "' . get_the_permalink() . '#comment-' . $comments[$i]->comment_ID . '"},' . "\n";
+                $comments = get_comments(['post_id' => $post->ID]);
+                if (count($comments) > 0) {
+                    echo '"comment": ['."\n";
+                    for ($i = 0; $i < count($comments) - 1; $i++) {
+                        echo '        { "@id": "'.get_the_permalink().'#comment-'.$comments[$i]->comment_ID.'"},'."\n";
                     }
-                    echo '        { "@id": "' . get_the_permalink() . '#comment-' . $comments[sizeof($comments) - 1]->comment_ID . '"}' . "\n";
-                    echo '    ],' . "\n";
+                    echo '        { "@id": "'.get_the_permalink().'#comment-'.$comments[count($comments) - 1]->comment_ID.'"}'."\n";
+                    echo '    ],'."\n";
                 }
-                echo '    "commentCount": "' . sizeof($comments) . '",' . "\n";
+                echo '    "commentCount": "'.count($comments).'",'."\n";
             ?>
     "mainEntityOfPage":"<?php the_permalink(); ?>",
-    "dateModified":"<?php the_modified_date("c"); ?>"
+    "dateModified":"<?php the_modified_date('c'); ?>"
     }
     </script>
-        <?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
+        <?php if (is_sticky() && is_home() && !is_paged()) : ?>
         <div class="featured-post">
-            <?php _e( 'Featured post', 'twentytwelve' ); ?>
+            <?php _e('Featured post', 'twentytwelve'); ?>
         </div>
         <?php endif; ?>
         <header class="entry-header">
-            <?php if ( is_single() ) : ?>
+            <?php if (is_single()) : ?>
             <h1 class="entry-title"><?php the_title(); ?></h1>
             <?php else : ?>
             <h1 class="entry-title">
                 <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
             </h1>
-            <?php endif; // is_single() ?>
+            <?php endif; // is_single()?>
             <?php
-            if ( ! post_password_required() && ! is_attachment() ) :
+            if (!post_password_required() && !is_attachment()) :
                 the_post_thumbnail();
             endif;
             ?>
-            <?php if ( comments_open() ) : ?>
+            <?php if (comments_open()) : ?>
                 <div class="comments-link">
-                    <?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a reply', 'twentytwelve' ) . '</span>', __( '1 Reply', 'twentytwelve' ), __( '% Replies', 'twentytwelve' ) ); ?>
+                    <?php comments_popup_link('<span class="leave-reply">'.__('Leave a reply', 'twentytwelve').'</span>', __('1 Reply', 'twentytwelve'), __('% Replies', 'twentytwelve')); ?>
                 </div><!-- .comments-link -->
-            <?php endif; // comments_open() ?>
+            <?php endif; // comments_open()?>
         </header><!-- .entry-header -->
 
-        <?php if ( is_search() ) : // Only display Excerpts for Search ?>
+        <?php if (is_search()) : // Only display Excerpts for Search?>
         <div class="entry-summary">
             <?php the_excerpt(); ?>
         </div><!-- .entry-summary -->
         <?php else : ?>
         <div class="entry-content">
-            <?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentytwelve' ) ); ?>
+            <?php the_content(__('Continue reading <span class="meta-nav">&rarr;</span>', 'twentytwelve')); ?>
             <?php
             wp_link_pages(
-                array(
-                    'before' => '<div class="page-links">' . __( 'Pages:', 'twentytwelve' ),
+                [
+                    'before' => '<div class="page-links">'.__('Pages:', 'twentytwelve'),
                     'after'  => '</div>',
-                )
+                ]
             );
             ?>
         </div><!-- .entry-content -->
@@ -98,8 +99,8 @@
         <footer class="entry-meta">
 <?php
     // Replace the default behaviour of author info with a fixed author block, containing also meta data.
-    if(is_single()) {
-?>
+    if (is_single()) {
+        ?>
             <div style="font-size:smaller;margin-bottom:-20px;">
                 Zuletzt geändert: <span class="updated"><?php the_modified_date(); ?></span> um <?php the_modified_time(); ?> Uhr.
             </div>
@@ -120,7 +121,8 @@
                     </div><!-- .author-description -->
                 </div><!-- .author-info -->
             </div>
-<?php } else { // Is not single. ?>
+<?php
+    } else { // Is not single.?>
             <div class="vcard">
                 <div class="author-info">
                     <div style="font-size:smaller;margin-bottom:-20px;">
@@ -128,7 +130,8 @@
                     </div>
                 </div>
             </div>
-<?php } ?>
+<?php
+    } ?>
 
         </footer><!-- .entry-meta -->
     </article><!-- #post -->
