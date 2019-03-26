@@ -18,6 +18,23 @@
 }
 
 /*
+ * Styles for the article footer.
+ */
+.author-avatar {
+    border: 2px;
+    border-color: #EFEFEF;
+    border-radius: 34px;
+    -moz-border-radius: 34px;
+    -khtml-border-radius: 34px;
+    -webkit-border-radius: 34px;
+    width: 68px;
+    height: 68px;
+    margin-left:24px;
+    margin-top:32px; /* 24px + 8px to adjust top of circle with start of text. */
+    background: url('https://de.gravatar.com/userimage/46451036/3a56a25056722bf770bb8f4d44c3c7c8.jpg?size=68');
+}
+
+/*
  * Styles to have a block with social media plugins below posts.
  */
 .social-block {
