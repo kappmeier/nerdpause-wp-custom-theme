@@ -33,7 +33,7 @@
     // TODO: multiple post pages, like category overview, or by date range
     ?>
     <!-- Meta data for sharing and social meda -->
-<?php if (!is_page() && have_posts()):the_post(); endif; ?>
+<?php if (!is_page() && have_posts()):the_post(); endif; /* Load the first post if multiple posts are available. */ ?>
     <meta name="description" content="<?php if (is_page() || is_single()): echo strip_tags(get_the_excerpt()); else: bloginfo('description'); endif; ?>"/>
 
     <!-- Facebook -->
@@ -77,6 +77,39 @@
 <?php
     } ?>
     <meta property="og:locale" content="de_DE" />
+ 
+    <!-- Twitter -->
+<?php
+    if(is_single() || (!is_page() && $wp_query->post_count == 1) || is_page()) {
+
+?>
+    <meta name="twitter:card" value="summary_large_image" />
+    <meta name="twitter:url" value="<?php the_permalink(); ?>" />
+    <meta name="twitter:title" value="<?php if (is_single()): single_post_title(''); else : if ($wp_query->post_count == 1): echo wp_title('|', false, 'right') . ": " . get_the_title(); else : wp_title('|', true, 'right'); endif; endif; ?>" />
+    <meta name="twitter:description" value="<?php echo strip_tags(get_the_excerpt()); ?>" />
+    <meta name="twitter:image" value="<?php echo twitter_post_image_large(); ?>" />
+<?php
+    #<meta name="twitter:site" value="@nerdpause" />
+        $username = str_replace('@', '', trim(get_the_author_meta('twitter')));
+        if ($username) { ?>
+    <meta name="twitter:creator" value="@<?php /* Remove the '@' if it was wrongly entered as it does not belong to the username. */ echo $username ?>" />
+<?php
+        }
+    } else { # Multiple posts
+    ?>
+    <meta name="twitter:card" value="summary" />
+    <meta name="twitter:url" value="<?php the_permalink(); ?>" />
+    <meta name="twitter:title" value="<?php wp_title('|', true, 'right'); ?>" />
+<?php
+    # Build the description
+    $description_array = array_map(function ($post) { return $post->post_title; }, $posts);
+    $description = join(" | ", $description_array);
+?>
+    <meta name="twitter:description" value="<?php echo $description; ?>" />
+    <meta name="twitter:image" value="<?php echo twitter_post_image(); ?>" />
+<?php
+    }
+?>
 
     <!-- JSON-LD -->
     <!-- The actual web page. -->
@@ -115,7 +148,7 @@
         }
     }
     </script>
-    
+ 
     <!-- The author/owner -->
     <script type="application/ld+json">
     {
@@ -171,7 +204,7 @@
                         <div class="ear"></div>
                         <div class="ear"></div>
                     </div>
-                    <div class="torso"></div>            
+                    <div class="torso"></div>         
                     <div class="leg"></div>
                     <div class="leg"></div>
                     <div class="arm1"></div>
