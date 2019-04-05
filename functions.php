@@ -28,7 +28,7 @@
     {
         add_theme_support('post-thumbnails');
         add_image_size('fb-image-small', FB_IMAGE_WIDTH_SMALL, FB_IMAGE_HEIGHT_SMALL, true);
-        add_image_size('fb-image', FB_IMAGE_WIDTH, FB_IMAGE_HEIGHT, true);   
+        add_image_size('fb-image', FB_IMAGE_WIDTH, FB_IMAGE_HEIGHT, true);
         add_image_size('tw-image', TW_IMAGE_WIDTH, TW_IMAGE_HEIGHT, true);
         add_image_size('tw-image-small', TW_IMAGE_WIDTH_SMALL, TW_IMAGE_HEIGHT_SMALL, true);
         add_image_size('tw-large-image', TW_LARGE_IMAGE_WIDTH, TW_LARGE_IMAGE_HEIGHT, true);
@@ -113,8 +113,7 @@
             'twitter' => __('Twitter Nutzername'),
         ]);
     }
-    add_filter( 'user_contactmethods', 'add_twitter_to_user_contact' );
-
+    add_filter('user_contactmethods', 'add_twitter_to_user_contact');
 
     function two_step_post_image($step1, $step1width, $step1height, $step2, $step2width, $step2height)
     {
@@ -135,7 +134,7 @@
                 return get_the_post_thumbnail_url(null, 'post-thumbnail');
             }
         } else {
-            return null;
+            return;
         }
     }
 

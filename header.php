@@ -48,22 +48,20 @@
     <meta property="article:author" content="https://www.facebook.com/janphilipp.kappmeier/" />
     <meta property="article:section" content="<?php
     $categories = get_the_category();
-    if (empty($categories)) {
-        echo "Allgemein";
-    } else {
-        echo $categories[0]->name;
-    }
-?>
+        if (empty($categories)) {
+            echo 'Allgemein';
+        } else {
+            echo $categories[0]->name;
+        } ?>
 " />
 <?php
     $tags = get_the_tags();
-    if (!empty( $tags)) {
-        foreach ($tags as $tag) {
-            #$cat_names[] = sanitize_term_field( 'name', $tag->name, $tag->term_id, 'post_tag', $filter );
-            echo '    <meta property="article:tag" content="' . $tag->name . '" />' . "\n";
-        }
-    }
-?>
+        if (!empty($tags)) {
+            foreach ($tags as $tag) {
+                //$cat_names[] = sanitize_term_field( 'name', $tag->name, $tag->term_id, 'post_tag', $filter );
+                echo '    <meta property="article:tag" content="'.$tag->name.'" />'."\n";
+            }
+        } ?>
     <meta property="og:image" content="<?php echo facebook_post_image(); ?>" />
 <?php
     } else {
@@ -80,31 +78,34 @@
  
     <!-- Twitter -->
 <?php
-    if(is_single() || (!is_page() && $wp_query->post_count == 1) || is_page()) {
-
-?>
+    if (is_single() || (!is_page() && $wp_query->post_count == 1) || is_page()) {
+        ?>
     <meta name="twitter:card" value="summary_large_image" />
     <meta name="twitter:url" value="<?php the_permalink(); ?>" />
-    <meta name="twitter:title" value="<?php if (is_single()): single_post_title(''); else : if ($wp_query->post_count == 1): echo wp_title('|', false, 'right') . ": " . get_the_title(); else : wp_title('|', true, 'right'); endif; endif; ?>" />
+    <meta name="twitter:title" value="<?php if (is_single()): single_post_title(''); else : if ($wp_query->post_count == 1): echo wp_title('|', false, 'right').': '.get_the_title(); else : wp_title('|', true, 'right');
+        endif;
+        endif; ?>" />
     <meta name="twitter:description" value="<?php echo strip_tags(get_the_excerpt()); ?>" />
     <meta name="twitter:image" value="<?php echo twitter_post_image_large(); ?>" />
 <?php
-    #<meta name="twitter:site" value="@nerdpause" />
+    //<meta name="twitter:site" value="@nerdpause" />
         $username = str_replace('@', '', trim(get_the_author_meta('twitter')));
-        if ($username) { ?>
+        if ($username) {
+            ?>
     <meta name="twitter:creator" value="@<?php /* Remove the '@' if it was wrongly entered as it does not belong to the username. */ echo $username ?>" />
 <?php
         }
-    } else { # Multiple posts
+    } else { // Multiple posts
     ?>
     <meta name="twitter:card" value="summary" />
     <meta name="twitter:url" value="<?php the_permalink(); ?>" />
     <meta name="twitter:title" value="<?php wp_title('|', true, 'right'); ?>" />
 <?php
-    # Build the description
-    $description_array = array_map(function ($post) { return $post->post_title; }, $posts);
-    $description = join(" | ", $description_array);
-?>
+    // Build the description
+    $description_array = array_map(function ($post) {
+        return $post->post_title;
+    }, $posts);
+        $description = implode(' | ', $description_array); ?>
     <meta name="twitter:description" value="<?php echo $description; ?>" />
     <meta name="twitter:image" value="<?php echo twitter_post_image(); ?>" />
 <?php
@@ -120,12 +121,12 @@
         "@type": "WebPage",
         "name": "<?php single_post_title(''); ?>",
         "description": "<?php if (is_page() && has_excerpt()): echo strip_tags(get_the_excerpt()); else: bloginfo('description');
-        endif; ?>",
+    endif; ?>",
         "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US"
     }
     </script>
     <?php
-    } else {
+} else {
         ?>
 <?php
     } ?>
