@@ -120,7 +120,7 @@
         //if (has_post_thumbnail() ): echo get_the_post_thumbnail_url(); endif;
         if (has_post_thumbnail()) {
             // Try to get high resolution fb image
-            $imgdata = wp_get_attachment_image_src(get_post_thumbnail_id(), $step1);
+            $img_data = wp_get_attachment_image_src(get_post_thumbnail_id(), $step1);
             if ($image_data[1] == $step1width && $image_data[2] == $step1height) {
                 return get_the_post_thumbnail_url(null, $step1);
             } else {
