@@ -5,12 +5,20 @@
     define('FB_IMAGE_WIDTH', 2 * FB_IMAGE_WIDTH_SMALL);
     define('FB_IMAGE_HEIGHT', 2 * FB_IMAGE_HEIGHT_SMALL);
 
+    define('TW_IMAGE_WIDTH_SMALL', 150);
+    define('TW_IMAGE_HEIGHT_SMALL', 150);
+    define('TW_IMAGE_WIDTH', 400);
+    define('TW_IMAGE_HEIGHT', 400);
+    define('TW_LARGE_IMAGE_WIDTH_SMALL', 300);
+    define('TW_LARGE_IMAGE_HEIGHT_SMALL', 157);
+    define('TW_LARGE_IMAGE_WIDTH', 876);
+    define('TW_LARGE_IMAGE_HEIGHT', 438);
+
     function nerdpause_theme_enqueue_styles()
     {
         wp_enqueue_style('parent-style', get_template_directory_uri().'/style.css');
         wp_enqueue_style('android-animation', get_stylesheet_directory_uri().'/android.css');
     }
-
     add_action('wp_enqueue_scripts', 'nerdpause_theme_enqueue_styles');
 
     // Allow landing pages to have excerpts. Used to generate meta description.
@@ -21,6 +29,10 @@
         add_theme_support('post-thumbnails');
         add_image_size('fb-image-small', FB_IMAGE_WIDTH_SMALL, FB_IMAGE_HEIGHT_SMALL, true);
         add_image_size('fb-image', FB_IMAGE_WIDTH, FB_IMAGE_HEIGHT, true);
+        add_image_size('tw-image', TW_IMAGE_WIDTH, TW_IMAGE_HEIGHT, true);
+        add_image_size('tw-image-small', TW_IMAGE_WIDTH_SMALL, TW_IMAGE_HEIGHT_SMALL, true);
+        add_image_size('tw-large-image', TW_LARGE_IMAGE_WIDTH, TW_LARGE_IMAGE_HEIGHT, true);
+        add_image_size('tw-large-image-small', TW_LARGE_IMAGE_WIDTH_SMALL, TW_LARGE_IMAGE_HEIGHT_SMALL, true);
     }
     add_action('after_setup_theme', 'nerdpause_setup');
 
@@ -89,6 +101,44 @@
     }
 
     /**
+     * Add Twitter user name to wordpress user.
+     *
+     * @param $user_contact user contact array
+     *
+     * @return user contact array with twitter entry
+     */
+    function add_twitter_to_user_contact($user_contact)
+    {
+        return array_merge($user_contact, [
+            'twitter' => __('Twitter Nutzername'),
+        ]);
+    }
+    add_filter('user_contactmethods', 'add_twitter_to_user_contact');
+
+    function two_step_post_image($step1, $step1width, $step1height, $step2, $step2width, $step2height)
+    {
+        //if (has_post_thumbnail() ): echo get_the_post_thumbnail_url(); endif;
+        if (has_post_thumbnail()) {
+            // Try to get high resolution fb image
+            $img_data = wp_get_attachment_image_src(get_post_thumbnail_id(), $step1);
+            if ($image_data[1] == $step1width && $image_data[2] == $step1height) {
+                return get_the_post_thumbnail_url(null, $step1);
+            } else {
+                // Try to get the low resolution fb image
+                $image_data = wp_get_attachment_image_src(get_post_thumbnail_id(), $step2); //change thumbnail to whatever size you are using
+                if ($image_data[1] == $step2width && $image_data[2] == $step2height) {
+                    return get_the_post_thumbnail_url(null, $step2);
+                }
+
+                // Return any picture as fallback
+                return get_the_post_thumbnail_url(null, 'post-thumbnail');
+            }
+        } else {
+            return;
+        }
+    }
+
+    /**
      * Call in the loop to get the facebook open graph image url. Uses the large
      * image size, if exists, and then the small image size. As fallback, an image
      * of any size is returned. If there is not image, the nerdpause logo in
@@ -96,25 +146,34 @@
      */
     function facebook_post_image()
     {
-        //if (has_post_thumbnail() ): echo get_the_post_thumbnail_url(); endif;
-        if (has_post_thumbnail()) {
-            // Try to get high resolution fb image
-            $imgdata = wp_get_attachment_image_src(get_post_thumbnail_id(), 'fb-image');
-            if ($image_data[1] == FB_IMAGE_WIDTH && $image_data[2] == FB_IMAGE_HEIGHT) {
-                return get_the_post_thumbnail_url(null, 'fb-image');
-            } else {
-                // Try to get the low resolution fb image
-                $image_data = wp_get_attachment_image_src(get_post_thumbnail_id(), 'fb-image-small'); //change thumbnail to whatever size you are using
-                if ($image_data[1] == FB_IMAGE_WIDTH_SMALL && $image_data[2] == FB_IMAGE_HEIGHT_SMALL) {
-                    return get_the_post_thumbnail_url(null, 'fb-image');
-                }
-
-                // Return any picture as fallback
-                return get_the_post_thumbnail_url(null, 'post-thumbnail');
-            }
+        $thumb = two_step_post_image('fb-image', FB_IMAGE_WIDTH, FB_IMAGE_HEIGHT, 'fb-image-small', FB_IMAGE_WIDTH_SMALL, FB_IMAGE_HEIGHT_SMALL);
+        if ($thumb) {
+            return $thumb;
         } else {
             // No thumbnail, return the default nerdpause image in open graph resolution
             return 'https://nerdpause.de/images/branding/logo/np-logo-1-og-1200.png';
+        }
+    }
+
+    function twitter_post_image()
+    {
+        $thumb = two_step_post_image('tw-image', TW_IMAGE_WIDTH, TW_IMAGE_HEIGHT, 'tw-image-small', TW_IMAGE_WIDTH_SMALL, TW_IMAGE_HEIGHT_SMALL);
+        if ($thumb) {
+            return $thumb;
+        } else {
+            // No thumbnail, return the default nerdpause image
+            return 'https://nerdpause.de/images/branding/logo/np-logo-1-sq-1024.png';
+        }
+    }
+
+    function twitter_post_image_large()
+    {
+        $thumb = two_step_post_image('tw-large-image', TW_LARGE_MAGE_WIDTH, TW_LARGE_IMAGE_HEIGHT, 'tw-large-image-small', TW_LARGE_IMAGE_WIDTH_SMALL, TW_LARGE_IMAGE_HEIGHT_SMALL);
+        if ($thumb) {
+            return $thumb;
+        } else {
+            // No thumbnail, return the default nerdpause image
+            return 'https://nerdpause.de/images/branding/logo/np-logo-1-sq-1024.png';
         }
     }
 ?>
