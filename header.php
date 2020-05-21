@@ -33,8 +33,14 @@
     // TODO: multiple post pages, like category overview, or by date range
     ?>
     <!-- Meta data for sharing and social meda -->
-<?php if (!is_page() && have_posts()):the_post(); endif; /* Load the first post if multiple posts are available. */ ?>
-    <meta name="description" content="<?php if (is_page() || is_single()): echo strip_tags(get_the_excerpt()); else: bloginfo('description'); endif; ?>"/>
+<?php if (!is_page() && have_posts()) {
+        the_post();
+    } /* Load the first post if multiple posts are available. */ ?>
+    <meta name="description" content="<?php if (is_page() || is_single()) {
+        echo strip_tags(get_the_excerpt());
+    } else {
+        bloginfo('description');
+    } ?>"/>
 
     <!-- Facebook -->
     <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
@@ -69,8 +75,11 @@
     <meta property="og:url" content="<?php global $wp;
         echo home_url($wp->request); ?>" />
     <meta property="og:title" content="<?php wp_title('|', true, 'right'); ?>" />
-    <meta property="og:description" content="<?php if (is_page() && has_excerpt()): echo strip_tags(get_the_excerpt()); else: bloginfo('description');
-        endif; ?>" />
+    <meta property="og:description" content="<?php if (is_page() && has_excerpt()) {
+            echo strip_tags(get_the_excerpt());
+        } else {
+            bloginfo('description');
+        } ?>" />
     <meta property="og:type" content="website" />
 <?php
     } ?>
@@ -82,9 +91,15 @@
         ?>
     <meta name="twitter:card" value="summary_large_image" />
     <meta name="twitter:url" value="<?php the_permalink(); ?>" />
-    <meta name="twitter:title" value="<?php if (is_single()): single_post_title(''); else : if ($wp_query->post_count == 1): echo wp_title('|', false, 'right').': '.get_the_title(); else : wp_title('|', true, 'right');
-        endif;
-        endif; ?>" />
+    <meta name="twitter:title" value="<?php if (is_single()) {
+            single_post_title('');
+        } else {
+            if ($wp_query->post_count == 1) {
+                echo wp_title('|', false, 'right').': '.get_the_title();
+            } else {
+                wp_title('|', true, 'right');
+            }
+        } ?>" />
     <meta name="twitter:description" value="<?php echo strip_tags(get_the_excerpt()); ?>" />
     <meta name="twitter:image" value="<?php echo twitter_post_image_large(); ?>" />
 <?php
@@ -120,16 +135,19 @@
         "@context": "http://schema.org",
         "@type": "WebPage",
         "name": "<?php single_post_title(''); ?>",
-        "description": "<?php if (is_page() && has_excerpt()): echo strip_tags(get_the_excerpt()); else: bloginfo('description');
-    endif; ?>",
+        "description": "<?php if (is_page() && has_excerpt()) {
+    echo strip_tags(get_the_excerpt());
+} else {
+    bloginfo('description');
+} ?>",
         "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US"
     }
     </script>
     <?php
 } else {
-        ?>
+    ?>
 <?php
-    } ?>
+} ?>
     <!-- The general web site -->
     <script type="application/ld+json">
     {
@@ -174,7 +192,9 @@
     } ?>
 <?php
     wp_head();
-    while (have_posts()) : the_post(); endwhile;
+    while (have_posts()) {
+        the_post();
+    }
 ?>
 </head>
 
@@ -213,9 +233,9 @@
                 </div>
             </div>
 
-        <?php if (get_header_image()) : ?>
+        <?php if (get_header_image()) { ?>
         <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php header_image(); ?>" class="header-image" width="<?php echo esc_attr(get_custom_header()->width); ?>" height="<?php echo esc_attr(get_custom_header()->height); ?>" alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" /></a>
-        <?php endif; ?>
+        <?php } ?>
     </header><!-- #masthead -->
 
     <div id="main" class="wrapper">

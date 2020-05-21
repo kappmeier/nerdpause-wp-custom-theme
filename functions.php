@@ -82,8 +82,11 @@
                     "@context": "http://schema.org/",
                     "@type": "Comment",
                     "@id": " <?php echo get_the_permalink().'#comment-'.$comment->comment_ID; ?>  ",
-                    "author": <?php if (get_comment_author() == 'kap'): echo '{ "@id": "https://kappmeier.de/about#kap" }'; else: echo nerdpause_comment_author_json_ld(get_comment_author());
-        endif; ?>,
+                    "author": <?php if (get_comment_author() == 'kap') {
+                    echo '{ "@id": "https://kappmeier.de/about#kap" }';
+                } else {
+                    echo nerdpause_comment_author_json_ld(get_comment_author());
+                } ?>,
                     "text": "<?php echo strip_tags(preg_replace('/\<br(\s*)?\/?\>/i', "\n", get_comment_text())); ?>"
                 }
                 </script>
