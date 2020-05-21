@@ -53,36 +53,36 @@
     "dateModified":"<?php the_modified_date('c'); ?>"
     }
     </script>
-        <?php if (is_sticky() && is_home() && !is_paged()) : ?>
+        <?php if (is_sticky() && is_home() && !is_paged()) { ?>
         <div class="featured-post">
             <?php _e('Featured post', 'twentytwelve'); ?>
         </div>
-        <?php endif; ?>
+        <?php } ?>
         <header class="entry-header">
-            <?php if (is_single()) : ?>
+            <?php if (is_single()) { ?>
             <h1 class="entry-title"><?php the_title(); ?></h1>
-            <?php else : ?>
+            <?php } else { ?>
             <h1 class="entry-title">
                 <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
             </h1>
-            <?php endif; // is_single()?>
+            <?php } // is_single()?>
             <?php
-            if (!post_password_required() && !is_attachment()) :
+            if (!post_password_required() && !is_attachment()) {
                 the_post_thumbnail();
-            endif;
+            }
             ?>
-            <?php if (comments_open()) : ?>
+            <?php if (comments_open()) { ?>
                 <div class="comments-link">
                     <?php comments_popup_link('<span class="leave-reply">'.__('Leave a reply', 'twentytwelve').'</span>', __('1 Reply', 'twentytwelve'), __('% Replies', 'twentytwelve')); ?>
                 </div><!-- .comments-link -->
-            <?php endif; // comments_open()?>
+            <?php } // comments_open()?>
         </header><!-- .entry-header -->
 
-        <?php if (is_search()) : // Only display Excerpts for Search?>
+        <?php if (is_search()) { // Only display Excerpts for Search?>
         <div class="entry-summary">
             <?php the_excerpt(); ?>
         </div><!-- .entry-summary -->
-        <?php else : ?>
+        <?php } else { ?>
         <div class="entry-content">
             <?php the_content(__('Continue reading <span class="meta-nav">&rarr;</span>', 'twentytwelve')); ?>
             <?php
@@ -94,7 +94,7 @@
             );
             ?>
         </div><!-- .entry-content -->
-        <?php endif; ?>
+        <?php } ?>
 
         <footer class="entry-meta">
 <?php
