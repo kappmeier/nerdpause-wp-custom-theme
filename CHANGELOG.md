@@ -2,12 +2,14 @@
 
 ## Unreleased
 
+Based on Twenty Twelve 3.1 as parent.
+
 ## 1.2.0
 
 Based on Twenty Twelve 2.9 as parent.
 
 ### Bugfix
-- Facebook thumbnails for sharing
+- Facebook thumbnails for sharing.
 
 ## 1.1.2
 

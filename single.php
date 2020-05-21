@@ -63,7 +63,7 @@ get_header(); ?>
                 <?php comments_template('', true); ?>
 
             <?php
-            } // end of the loop.?>
+            } // End of the loop.?>
 
         </div><!-- #content -->
     </div><!-- #primary -->
