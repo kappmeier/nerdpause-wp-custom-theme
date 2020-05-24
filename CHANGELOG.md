@@ -4,6 +4,9 @@
 
 Based on Twenty Twelve 3.1 as parent.
 
+### Removed
+- Google+ social share link
+
 ## [1.2.0]
 
 Based on Twenty Twelve 2.9 as parent.
