@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [Unreleased]
+## [1.3.0]
 
 Based on Twenty Twelve 3.1 as parent.
 
@@ -52,7 +52,7 @@ Based on Twenty Twelve 1.3 as parent.
 - Android waving arm on mouse hover in the header.
 - Hard coded author information enriched meta tags and schemas.
 
-[Unreleased]: https://github.com/kappmeier/nerdpause-wp-custom-theme/compare/v1.2.0...HEAD
+[1.3.0]: https://github.com/kappmeier/nerdpause-wp-custom-theme/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/kappmeier/nerdpause-wp-custom-theme/compare/v1.1.2...v1.2.0
 [1.1.2]: https://github.com/kappmeier/nerdpause-wp-custom-theme/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/kappmeier/nerdpause-wp-custom-theme/compare/v1.1.0...v1.1.1
