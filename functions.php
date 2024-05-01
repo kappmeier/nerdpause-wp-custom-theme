@@ -74,7 +74,7 @@
             case 'trackback':
                 // We do not handle tracebacks.
                 break;
-        default:
+            default:
                 // We add json-ld for a comment.
                 ?>
                 <script type="application/ld+json">
@@ -171,7 +171,7 @@
 
     function twitter_post_image_large()
     {
-        $thumb = two_step_post_image('tw-large-image', TW_LARGE_MAGE_WIDTH, TW_LARGE_IMAGE_HEIGHT, 'tw-large-image-small', TW_LARGE_IMAGE_WIDTH_SMALL, TW_LARGE_IMAGE_HEIGHT_SMALL);
+        $thumb = two_step_post_image('tw-large-image', TW_LARGE_IMAGE_WIDTH, TW_LARGE_IMAGE_HEIGHT, 'tw-large-image-small', TW_LARGE_IMAGE_WIDTH_SMALL, TW_LARGE_IMAGE_HEIGHT_SMALL);
         if ($thumb) {
             return $thumb;
         } else {
