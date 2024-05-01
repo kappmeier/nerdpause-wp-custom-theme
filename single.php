@@ -11,7 +11,7 @@ get_header(); ?>
             while (have_posts()) {
                 the_post(); ?>
 
-            <?php get_template_part('content', get_post_format()); ?>
+                <?php get_template_part('content', get_post_format()); ?>
 
                 <div class="social-block">
                     <!-- SVG icons for sharing from ShareCounts WP Plugin. -->
@@ -55,7 +55,7 @@ get_header(); ?>
                 <?php comments_template('', true); ?>
 
             <?php
-            } // End of the loop.?>
+		    } // End of the loop. ?>
 
         </div><!-- #content -->
     </div><!-- #primary -->

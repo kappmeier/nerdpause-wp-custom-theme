@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+Based on Twenty Twelve 4.2 as parent.
+
 ## [1.3.0]
 
 Based on Twenty Twelve 3.1 as parent.
