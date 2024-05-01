@@ -4,6 +4,11 @@
 
 Based on Twenty Twelve 4.2 as parent.
 
+### Bugfix
+
+- Wrong reference to Twitter thumbnail potentially yielding to white screen
+- Failure when displaying privacy policy in case document is not existing
+
 ## [1.3.0]
 
 Based on Twenty Twelve 3.1 as parent.
