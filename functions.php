@@ -55,6 +55,11 @@
         $doc = new DOMDocument();
         @$doc->loadHTML('<meta http-equiv="content-type" content="text/html; charset=utf-8">'.$link);
 
+        if (empty($link)) {
+            error_log('Could not parse privacy policy link: '.$link);
+            return "<a href=\"#\"><del>Datenschutzerklärung</del></a>";
+        }
+
         // Find the link and set the attribute
         $link = $doc->getElementsByTagName('a')[0];
         $link->setAttribute('rel', 'nofollow');
