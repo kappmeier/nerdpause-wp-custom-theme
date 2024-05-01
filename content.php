@@ -59,26 +59,27 @@
         </div>
         <?php } ?>
         <header class="entry-header">
+            <?php
+            if (!post_password_required() && !is_attachment()) {
+                the_post_thumbnail();
+			}
+            ?>
+
             <?php if (is_single()) { ?>
             <h1 class="entry-title"><?php the_title(); ?></h1>
             <?php } else { ?>
             <h1 class="entry-title">
                 <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
             </h1>
-            <?php } // is_single()?>
-            <?php
-            if (!post_password_required() && !is_attachment()) {
-                the_post_thumbnail();
-            }
-            ?>
+            <?php } // is_single() ?>
             <?php if (comments_open()) { ?>
                 <div class="comments-link">
                     <?php comments_popup_link('<span class="leave-reply">'.__('Leave a reply', 'twentytwelve').'</span>', __('1 Reply', 'twentytwelve'), __('% Replies', 'twentytwelve')); ?>
                 </div><!-- .comments-link -->
-            <?php } // comments_open()?>
+            <?php } // comments_open() ?>
         </header><!-- .entry-header -->
 
-        <?php if (is_search()) { // Only display excerpts for search?>
+        <?php if (is_search()) { // Only display excerpts for search. ?>
         <div class="entry-summary">
             <?php the_excerpt(); ?>
         </div><!-- .entry-summary -->
@@ -91,13 +92,13 @@
                     'before' => '<div class="page-links">'.__('Pages:', 'twentytwelve'),
                     'after'  => '</div>',
                 ]
-            );
+           );
             ?>
         </div><!-- .entry-content -->
         <?php } ?>
 
         <footer class="entry-meta">
-<?php
+            <?php
     // Replace the default behaviour of author info with a fixed author block, containing also meta data.
     if (is_single()) {
         ?>
@@ -108,10 +109,10 @@
             <div class="vcard">
                 <div itemscope itemtype="https://schema.org/Person" class="author-info">
                     <div class="author-avatar">
-                            <span style="display:none"><a href="https://de.gravatar.com/userimage/46451036/3a56a25056722bf770bb8f4d44c3c7c8.jpg?size=68" itemprop="image"></a></span>
+					<span style="display:none"><a href="https://de.gravatar.com/userimage/46451036/3a56a25056722bf770bb8f4d44c3c7c8.jpg?size=68" itemprop="image"></a></span>
                     </div><!-- .author-avatar -->
                     <div class="author-description">
-                        <h2>Geschrieben von <span itemprop="name" class="fn"><a itemprop="url" href="https://plus.google.com/+JanPhilippKappmeier?rel=author" target="_blank">Jan-Philipp Kappmeier</a></span>.</h2>
+					<h2>Geschrieben von <span itemprop="name" class="fn"><a itemprop="url" href="https://plus.google.com/+JanPhilippKappmeier?rel=author" target="_blank">Jan-Philipp Kappmeier</a></span>.</h2>
                         <span style="display:none;"> a.k.a. <a itemprop="url" href="https://plus.google.com/+JanPhilippKappmeier?rel=author" target="_blank"><span itemprop="alternateName" class="nickname">Kap</span></a></span>
                             <p>
                                 Ich bin Diplom-Informatiker, den es von <span class="adr"><span itemprop="birthPlace" class="locality">Herten</span> im wunderschönen <span class="locality">Ruhrgebiet</span> nach <span itemprop="homeLocation" class="locality">Berlin</span></span> verschlagen hat.

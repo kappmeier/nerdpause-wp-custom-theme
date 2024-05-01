@@ -1,11 +1,11 @@
 /*
  Theme Name:   Twenty Twelve Nerdpause
  Theme URI:    http://kappmeier.github.io/nerdpause-wp-custom-theme
- Description:  Nerdpause child theme, basaed on Twenty Twelve 2.9. Additionally to the parent script it contains a logo in the header and an Android. The content is enriched by using several meta tags for social media and schemas.
+ Description:  Nerdpause child theme, basaed on Twenty Twelve 4.2. Additionally to the parent script it contains a logo in the header and an Android. The content is enriched by using several meta tags for social media and schemas.
  Author:       Jan-Philipp Kappmeier
  Author URI:   http://kappmeier.de
  Template:     twentytwelve
- Version:      1.1.2
+ Version:      1.4.0
  License:      GNU General Public License v3 or later
  License URI:  http://www.gnu.org/licenses/gpl-3.0.html
  Tags:         light, gray, white, one-column, two-columns, right-sidebar, flexible-width, custom-background, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready
@@ -21,17 +21,18 @@
  * Styles for the article footer.
  */
 .author-avatar {
-    border: 2px;
-    border-color: #EFEFEF;
-    border-radius: 34px;
-    -moz-border-radius: 34px;
-    -khtml-border-radius: 34px;
-    -webkit-border-radius: 34px;
-    width: 68px;
-    height: 68px;
-    margin-left:24px;
-    margin-top:32px; /* 24px + 8px to adjust top of circle with start of text. */
-    background: url('https://de.gravatar.com/userimage/46451036/3a56a25056722bf770bb8f4d44c3c7c8.jpg?size=68');
+  border: 2px;
+  border-color: #EFEFEF;
+  border-radius: 34px;
+  -moz-border-radius: 34px;
+  -khtml-border-radius: 34px;
+  -webkit-border-radius: 34px;
+  width: 68px;
+  height: 68px;
+  margin-left: 24px;
+  margin-top: 32px;
+  /* 24px + 8px to adjust top of circle with start of text. */
+  background: url('https://de.gravatar.com/userimage/46451036/3a56a25056722bf770bb8f4d44c3c7c8.jpg?size=68');
 }
 
 /*
@@ -51,22 +52,22 @@
  * Custom style for images.
  */
 .wp-block-gallery {
-    border-top: 1px solid #ededed;
-    border-bottom: 1px solid #ededed;
-    padding: 16px 0px 0px 0;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+  padding: 16px 0px 0px 0;
 }
 
 .wp-block-image {
-    position: relative;
-    padding: 16px 0px 16px 0;
-    border-top: 1px solid #ededed;
-    border-bottom: 1px solid #ededed;
+  position: relative;
+  padding: 16px 0px 16px 0;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
 }
 
 .wp-block-image img {
-    display: block;
-    width: 100%;
-    height: auto;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .wp-block-image figcaption {
@@ -78,10 +79,10 @@
   max-height: 100%;
   overflow: auto;
   padding: 40px 10px 5px;
-  color: #fff!important;
+  color: #fff !important;
   text-align: center;
   font-size: 13px;
-  background: linear-gradient(0deg,rgba(0,0,0,.7),rgba(0,0,0,.3) 60%,transparent);
+  background: linear-gradient(0deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .3) 60%, transparent);
   margin-bottom: 16px;
 }
 
@@ -106,48 +107,48 @@
   padding-bottom: 0px;
 }
 
-.social-share-icon{
-    float: left;
-    display: block;
-    text-align: center;
-    margin: 0;
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
+.social-share-icon {
+  float: left;
+  display: block;
+  text-align: center;
+  margin: 0;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
 }
 
 div.site-header {
-    height: 120px;
-    padding: 0;
-    float:left;
+  height: 120px;
+  padding: 0;
+  float: left;
 }
 
 div.logo-column {
-    width:120px;
-    padding-right:40px;
+  width: 120px;
+  padding-right: 40px;
 }
 
 .header-logo {
-    width: 120px;
-    height: 120px;
-    margin-top:0px;
-    box-shadow: none;
+  width: 120px;
+  height: 120px;
+  margin-top: 0px;
+  box-shadow: none;
 }
 
 div.name-column {
-    float: left;
+  float: left;
 }
 
 div.action-column {
-    float:right;
-    width:200px;
-    position:relative;
+  float: right;
+  width: 200px;
+  position: relative;
 }
 
 .site-title {
-    margin-top:24px;
+  margin-top: 24px;
 }
 
 .site-description {
-    margin-top:-8px;
+  margin-top: -8px;
 }
