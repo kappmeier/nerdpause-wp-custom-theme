@@ -21,26 +21,27 @@
  * Styles for the article footer.
  */
 .author-avatar {
-    border: 2px;
-    border-color: #EFEFEF;
-    border-radius: 34px;
-    -moz-border-radius: 34px;
-    -khtml-border-radius: 34px;
-    -webkit-border-radius: 34px;
-    width: 68px;
-    height: 68px;
-    margin-left:24px;
-    margin-top:32px; /* 24px + 8px to adjust top of circle with start of text. */
-    background: url('https://de.gravatar.com/userimage/46451036/3a56a25056722bf770bb8f4d44c3c7c8.jpg?size=68');
+  border: 2px;
+  border-color: #EFEFEF;
+  border-radius: 34px;
+  -moz-border-radius: 34px;
+  -khtml-border-radius: 34px;
+  -webkit-border-radius: 34px;
+  width: 68px;
+  height: 68px;
+  margin-left: 24px;
+  margin-top: 32px;
+  /* 24px + 8px to adjust top of circle with start of text. */
+  background: url('https://de.gravatar.com/userimage/46451036/3a56a25056722bf770bb8f4d44c3c7c8.jpg?size=68');
 }
 
 /*
  * Update post picture in page.
  */
 .entry-header img.wp-post-image {
-	margin-bottom: 0;
-	margin-top: 24px;
-	margin-top: 1.714285714rem;
+  margin-bottom: 0;
+  margin-top: 24px;
+  margin-top: 1.714285714rem;
 }
 
 .entry-header .comments-link {
@@ -51,22 +52,22 @@
  * Custom style for images.
  */
 .wp-block-gallery {
-	border-top: 1px solid #ededed;
-    border-bottom: 1px solid #ededed;
-    padding: 16px 0px 0px 0;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+  padding: 16px 0px 0px 0;
 }
 
 .wp-block-image {
-    position: relative;
-    padding: 16px 0px 16px 0;
-	border-top: 1px solid #ededed;
-	border-bottom: 1px solid #ededed;
+  position: relative;
+  padding: 16px 0px 16px 0;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
 }
 
 .wp-block-image img {
-	display: block;
-    width: 100%;
-	height: auto;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .wp-block-image figcaption {
@@ -78,10 +79,10 @@
   max-height: 100%;
   overflow: auto;
   padding: 40px 10px 5px;
-  color: #fff!important;
+  color: #fff !important;
   text-align: center;
-	font-size: 13px;
-  background: linear-gradient(0deg,rgba(0,0,0,.7),rgba(0,0,0,.3) 60%,transparent);
+  font-size: 13px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .3) 60%, transparent);
   margin-bottom: 16px;
 }
 
@@ -98,7 +99,7 @@
 
 .social-block ul li {
   display: inline-block;
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .site-content article {
@@ -106,48 +107,48 @@
   padding-bottom: 0px;
 }
 
-.social-share-icon{
-	float: left;
-	display: block;
-    text-align: center;
-	margin: 0;
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
+.social-share-icon {
+  float: left;
+  display: block;
+  text-align: center;
+  margin: 0;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
 }
 
 div.site-header {
-    height: 120px;
-    padding: 0;
-    float:left;
+  height: 120px;
+  padding: 0;
+  float: left;
 }
 
 div.logo-column {
-    width:120px;
-    padding-right:40px;
+  width: 120px;
+  padding-right: 40px;
 }
 
 .header-logo {
-    width: 120px;
-    height: 120px;
-    margin-top:0px;
-    box-shadow: none;
+  width: 120px;
+  height: 120px;
+  margin-top: 0px;
+  box-shadow: none;
 }
 
 div.name-column {
-		float: left;
+  float: left;
 }
 
 div.action-column {
-    float:right;
-    width:200px;
-    position:relative;
+  float: right;
+  width: 200px;
+  position: relative;
 }
 
 .site-title {
-    margin-top:24px;
+  margin-top: 24px;
 }
 
 .site-description {
-    margin-top:-8px;
+  margin-top: -8px;
 }
